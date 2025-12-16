@@ -1,0 +1,16 @@
+-- Radera eventuella befintliga vyer och procedurer som ska återskapas
+DROP VIEW IF EXISTS v_TitlarPerFörfattare;
+DROP VIEW IF EXISTS v_OrdrarPerKund;
+DROP PROCEDURE IF EXISTS usp_FlyttaBok;
+
+-- Radera eventuella befintliga tabeller (droppas i rätt ordning p.g.a. FK-relationer)
+DROP TABLE IF EXISTS Orderrader;       -- Mellantabell ordrar-böcker (junction för orderdetaljer)
+DROP TABLE IF EXISTS BockerForfattare; -- Mellantabell böcker-författare (junction för många-till-många)
+DROP TABLE IF EXISTS LagerSaldo;       -- LagerSaldo refererar Butiker och Böcker
+DROP TABLE IF EXISTS Ordrar;          -- Ordrar refererar Kunder och Butiker
+DROP TABLE IF EXISTS Bocker;          -- Böcker refererar Förlag och Kategorier
+DROP TABLE IF EXISTS Forfattare;
+DROP TABLE IF EXISTS Kunder;
+DROP TABLE IF EXISTS Butiker;
+DROP TABLE IF EXISTS Forlag;
+DROP TABLE IF EXISTS Kategorier;
